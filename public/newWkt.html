@@ -4,8 +4,57 @@
 	<title></title>
 </head>
 <body>
+	<main role="main">
+		<section role="region">
+			<header class="title">
+				<h1 class="header">Create a New Workout</h1>
+			</header>
 
-	<p>Hello world</p>
+
+		<nav role="navigation" class="nav">
+				<ul>
+					<li class="nav-left"><span class="nav-logo">FitSrv</span></li>
+					<a href="/newWkt.html"><li class="nav-left nav-hover">New Workout</li></a>
+					<a href="/"><li class="nav-right nav-hover log-out" id="log-out">Log out></li></a>
+				</ul>
+			</nav>
+		</section>
+
+		<div class= "add-workout">
+			<form class="new-workout-form">
+				<fieldset id="add-exercise">
+					<legend>Add Exercise</legend>
+					<div class="add-exercise">
+						<label for="exercise-name">Exercise:</label>
+						<input type="text" id="exercise-name" name="exercise-name" placeholder="Exercise" class="exercise-name"/><br>
+						<div class="muscle-group-options">
+							<p>Muscle Group:</p>
+							<label for="muscleOption1">Chest</label>
+							<input type="radio" id="muscleOption1" name="muscleGroup" value="text"/>
+							<label for="muscleOption2">Back</label>
+							<input type="radio" id="muscleOption2"  name="muscleGroup" value="text"/>
+							<label for="muscleOption3">Arms</label>
+							<input type="radio" id="muscleOption3" name="muscleGroup" value="text"/>
+							<label for="muscleOption4">Legs</label>
+							<input type="radio" id="muscleOption4" name="muscleGroup" value="text"/>
+							<label for="muscleOption5">Shoulders</label>
+							<input type="radio" id="muscleOption5" name="muscleGroup" value="text"/>
+							<label for="muscleOption6">Abdominal/Core</label>
+							<input type="radio" id="muscleOption6" name="muscleGroup" value="text"/>
+						</div><br>
+						<label for="repititions">Repititions:</label>
+						<input type="number" id="repition-value" name="repition-value" placeholder="10" class="repition-value"/> <br>
+						<label for="rounds">Rounds:</label>
+						<input type="number" id="rounds-value" name="rounds-value" placeholder="3" class="rounds-value">
+						<label for="weight" id="weight-value">Weight:</label>
+						<input type="number" id="weight-value" name="weight-value" placeholder="100" class="weight-value"/>
+					</div>
+					<input type="button" id="add-exercise-field" name="add-exercise-field" value="Add Exercise Field"/>
+					<button type="submit" class="submit-workout-js" name="button">Save this workout</button>
+				</fieldset>
+			</form>
+		</div>
+	</main>
 
 </body>
 </html>

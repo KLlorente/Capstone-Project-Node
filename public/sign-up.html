@@ -4,8 +4,24 @@
 	<title></title>
 </head>
 <body>
-
-	<p>hello world</p>
+	<main role="main">
+		<div class="signup-container">
+			<h1>Welcome to FitSrv</h1>
+			<p class="signup-instructions">Please fill out the following forms to get started:</p>
+			<form class="signup-form">
+				<filedset>
+					<label for="username">Username: </label>
+					<input type="text" id="username" name="username" placeholder="username"/>
+					<br>
+					<label for="password">Password: </label>
+					<input type="text" id="password" name="password" placeholder="password"/>
+					<br>
+					<button type="submit" name="button" class="signup-button-js">Sign Up!</button>
+					<p>Already have an account? <a href="#" class="login-button">Click Here</a> to sign in</p>
+				</filedset>
+			</form>
+		</div>
+	</main>
 
 </body>
 </html>

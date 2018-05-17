@@ -4,8 +4,37 @@
 	<title></title>
 </head>
 <body>
+	<main role = "main">
+		<div class ="js-start-dispaly" id="start-page">
+			<header class="row">
+				<h1 class="logo">Welcome to FitSrv</h1>
+				<p>FitSrv is a site that helps you build and keep track of your different workouts. Easily, create, store, edit, and recall custom workouts!</p>
+			</header>>
+		</div>
+		<nav role="navigation" class="nav">
+			<ul>
+				<a href="#""><li class="nav-left"><span class="nav-logo">FitSrv</span></li></a>
+				<a href="sign-up"><li class="nav-left nav hover">Sign-up!</li></a>
+				<a href="#login_containter"><li class="nav-right nav-hover">Sign In</li></a>
+			</ul>
+		</nav>
+	
 
-	<p>Hello World!</p>
-
+	<hr>
+	<div class ="login_container">
+		<h2>Sign-in!</h2>
+			<p>Enter in your username and password</p>
+		<form class="login_form">
+			<fieldset>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" placeholder="Username"class="username"><br>
+				<label for="password">Password:</label>
+				<input id="password" name="password" placeholder="password" class="password"/><br>
+				<button type= "submit" class ="sign-in-button-js" name="button" aria-label"">Sign-in!</button>
+				<p>Don't have an account? <a href="#sign-up">Click Here</a> to Sign Up!</p>
+			</fieldset>	
+		</form>
+	</div>
+	</main>
 </body>
 </html>
