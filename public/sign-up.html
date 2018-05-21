@@ -11,13 +11,15 @@
 			<form class="signup-form">
 				<filedset>
 					<label for="username">Username: </label>
-					<input type="text" id="username" name="username" placeholder="username"/>
+					<input type="text" id="username" name="username" class="username" placeholder="username"/>
 					<br>
 					<label for="password">Password: </label>
-					<input type="text" id="password" name="password" placeholder="password"/>
+					<input type="text" id="password" name="password" class="password" placeholder="password"/>
 					<br>
 					<button type="submit" name="button" class="signup-button-js">Sign Up!</button>
+					<p role="region" class="feedback" style="display:none">Username already taken</p>
 					<p>Already have an account? <a href="#" class="login-button">Click Here</a> to sign in</p>
+
 				</filedset>
 			</form>
 		</div>

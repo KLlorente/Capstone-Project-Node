@@ -1,18 +1,16 @@
-//const USER_API_ENDPOINT = 
-
 const MOCK_WORKOUTS = {
 	"workOuts": [
 	{ 
 		"workoutTitle" : "Leg Day",
 		"exercises": [
 			{
-				"exercise": "squat",
+				"title": "squat",
 				"muscleGroup": "quads",
 				"reps/duration": 30,
 				"weight": "body", 
 			},
 			{
-				"exercise": "leg press",
+				"title": "leg press",
 				"muscleGroup": "quads, hamstrings, glutes",
 				"rounds": 4,
 				"repition": 10,
@@ -20,7 +18,7 @@ const MOCK_WORKOUTS = {
 
 			},
 			{
-				"exercise": "Dead Lift",
+				"title": "Dead Lift",
 				"muscleGroup": "quads, hamstrings, back, glutes",
 				"reps/duration": "10",
 				"weight": 135,
@@ -109,19 +107,3 @@ function displaySavedWorkouts(data) {
 function getAndDisplaySavedWorkouts() {
 	getSavedWorkouts(displaySavedWorkouts); 
 }
-
-function getAndDeleteSavedWorkouts() {
-	getSavedWorkouts(deleteSavedWorkouts); 
-}
-
-$(document).on('click', 'edit-btn', function (event) {
-	window.localStorage.setItem('workOut', $(this).siblings('#raw-data').text())
-	window.location='/editWkt.html';
-})
-
-$(document).on('click', 'newWkt-button', function (event) {
-	window.location = "newWkt.html"; 
-})
-
-$(getAndDisplaySavedWorkouts); 
-$(getAndDeleteSavedWorkouts); 

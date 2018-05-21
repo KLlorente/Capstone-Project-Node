@@ -1,75 +1,89 @@
-const MOCK_WORKOUTS = {
-	WorkOuts: [
-	{ 
-		workoutTitle : "Leg Day",
-		exercises: [
-			{
-				title: "squat",
-				muscleGroup: "quads",
-				reps/duration: 30,
-				weight: "body", 
-			},
-			{
-				title: "leg press",
-				muscleGroup: "quads, hamstrings, glutes",
-				rounds: 4,
-				repition: 10,
-				weight: 315, 
+'use strict'; 
 
-			},
-			{
-				title: "Dead Lift",
-				muscleGroup: "quads, hamstrings, back, glutes",
-				reps/duration: "10",
-				weight: 135,
-				weightUnit: "lb" 
+//sign-up form 
+
+$('.signup-form').on('submit', event => {
+	event.preventDefault(); 
+
+	let username = $('.username').val(); 
+	let password = $('.passsword').val();
+
+	$.ajax({
+		method: 'POST', 
+		url: '/user-acc', 
+		data: JSON.stringify({username, password}),
+		contentType: 'application/json', 
+		dataType: 'json', 
+
+		success: response => {
+			console.log(response); 
+			window.location = 'index.html'
+		}, 
+
+		error: function(object, message) {
+			console.log(object); 
+			$('.feedback').show(); 
+		} 
+	}); 
+});
+
+$('#signUp-button').on('click', event => {
+	window.location 'sign-up.html'; 
+}); 
+
+//log-in form
+
+$('.login-form').on('submit', event => {
+	event.preventDefault(); 
+
+	let username = $('.username').val(); 
+	let password = $('.passord').val(); 
+
+	.ajax({
+		method: 'POST', 
+		url: '/login', 
+		data: JSON.stringify({username, password}), 
+		contentType: 'application/json', 
+		dataType: 'json', 
+		error: function(object, message, string){
+			console.log(object); 
+			if (object.status ===401){
+				$('.login-feedback').show(); 
 			}
-		]
-	},
-	{
-		workoutTitle: "Push Day",
-		exercises: [
-			{
-				exercise: "Incline dumbell chest press",
-				muscleGroup: "Pecs, ",
-				reps/duration: "12 X 4",
-				weight: "65 lbs", 
-			},
-			{
-				exercise: "Bench Press",
-				muscleGroup: "Pecs",
-				reps/duration: 15,
-				weight: "135 lbs", 
-			},
-			{
-				exercise: "Push-up",
-				muscleGroup: "Pecs",
-				reps/duration: "50",
-				weight: "body weight", 
-			}	
-		]
-	},
-	{
-		workout title: "Pull Day",
-		exercises: [
-			{
-				exercise: "Pull up",
-				muscleGroup: "back",
-				reps/duration: "To Failure",
-				weight: "body weight", 
-			},
-			{
-				exercise: "Dumbell Row",
-				muscleGroup: "back",
-				reps/duration: 10,
-				weight: 45, 
-			},
-			{
-				eitle: "back extension",
-				muscleGroup: "lower back",
-				reps/duration: 15,
-				weight: "body weight", 
-			}
-		]
-	}	
-}
+		}, 
+
+		success: response => {
+			console.log(response.authToken, response.userId)
+			sonsole.log("success")
+			localStorage.setItem('token', response.authToken)
+			localStorage.setItem('userId', resonse.uderId)
+			window.location = "userHome.html"
+		}
+	})
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
