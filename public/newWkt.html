@@ -19,15 +19,24 @@
 				</ul>
 			</nav>
 		</section>
+		<div id = "wrapper">
 
 		<div class= "add-workout">
-			<form class="new-workout-form">
-				<fieldset>
+
+			   <form class="new-workout-form">
+			   		<fieldset>
 					<label for="workout-title">Workout Title: </label>
-					<input type="text" id="workout-title" name="workout-title" placeholder="Name this Workout" class="workout-title"><br>
+					<input type="text" id="workout-title" name="workout-title" placeholder="Name this Workout" class="workout-title"><br>       
 				</fieldset>
-				<fieldset id="add-exercise-fieldset">
-					<legend>Add Exercise</legend>
+     <legend>Add Exercise</legend>
+
+     <fieldset id="add-exercise-fieldset">
+
+        		<label><input id="rdb1" type="radio" name="toggler" value="1" />Strength Exercise</label>
+				<label><input id="rdb2" type="radio" name="toggler" value="2"/>Cardio Exercise</label>
+	
+        		<div id="blk-1" class="toHide" style="display:none">
+				<fieldset>
 					<div class="add-exercise">
 						<label for="exercise-name">Exercise:</label>
 						<input type="text" id="exercise-name" name="exercise-name" placeholder="Exercise" class="exercise-name"/><br>
@@ -54,10 +63,40 @@
 						<input type="number" id="weight-value" name="weight-value" placeholder="100" class="weight-value"/>
 					</div>
 				</fieldset><br>
+				</div>
+				<div id="blk-2" class="toHide" style="display:none">
+   				<fieldset>
+   
+  				 <label for="exercise-name">Exercise:</label>
+						<input type="text" id="exercise-name" name="exercise-name" placeholder="Exercise" class="exercise-name"/><br>
+            	<label for="Length">Length:</label>
+						<input type="number" id="length-value" name="length-value" placeholder="3" class="length-value"><br>
+            	<div class="length-unit-options">
+							<p>Length Unit:</p>
+							<input type="radio" id="unitOption1"  name="unitOption" value="text"/>
+							<label for="unitOption1">seconds</label>
+							<input type="radio" id="unitOption2" name="unitOption" value="text"/>
+							<label for="unitOption2">minutes</label>
+							<input type="radio" id="unitOption3" name="unitOption" value="text"/>
+							<label for="unitOption3">hours</label>
+							<input type="radio" id="unitOption4" name="unitOption" value="text"/>				
+							<label for="unitOption4">miles</label>
+							<input type="radio" id="unitOption5" name="unitOption" value="text"/>
+							<label for="unitOption5">kilometers</label>
+							<input type="radio" id="unitOption6" name="unitOption" value="text"/>
+              				<label for="unitOption6">yards</label>
+							              
+						</div>
+						</fieldset>
+						<br>
+						</div>
+				</fieldset>
+
+			</div>
 				<input type="button" id="add-exercise-field-button" name="add-exercise-field" value="Add Exercise Field"/>
 				<button type="submit" class="submit-workout-js" name="button">Save this workout</button>
 			</form>
-		</div>
+		
 	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

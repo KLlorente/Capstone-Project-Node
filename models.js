@@ -8,11 +8,12 @@ const newWorkoutSchema = mongoose.Schema({
 	id: {type: String}, 
 	workoutTitle: {type: String}, 
 	exercise: {
-		exercise: String, 
+		exerciseTitle: String, 
 		muscleGroup: String, 
 		repititions: Number, 
 		rounds: Number, 
-		weight: Number 
+		weight: Number,
+		type: Number  
 	}
 }); 
 
@@ -31,6 +32,6 @@ newWorkoutSchema.methods.serialize = function() {
 	};
 }
 
-const Workout = mongoose.modl('Workout', newWorkoutSchema);
+const Workout = mongoose.model('Workout', newWorkoutSchema);
 
 module.exports = {Workout}; 

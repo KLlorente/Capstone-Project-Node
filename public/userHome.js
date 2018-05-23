@@ -7,23 +7,25 @@ const MOCK_WORKOUTS = {
 		"exercises": [
 			{
 				"exercise": "squat",
-				"muscleGroup": "quads",
-				"reps/duration": 30,
-				"weight": "body", 
+				"muscleGroup": "legs",
+				"repititions": 30,
+				"rounds": 3,
+				"weight": 0
 			},
 			{
 				"exercise": "leg press",
-				"muscleGroup": "quads, hamstrings, glutes",
+				"muscleGroup": "legs",
+				"repititions": 10,
 				"rounds": 4,
-				"repition": 10,
 				"weight": 315, 
 
 			},
 			{
 				"exercise": "Dead Lift",
-				"muscleGroup": "quads, hamstrings, back, glutes",
-				"reps/duration": "10",
-				"weight": 135,
+				"muscleGroup": "legs",
+				"repititions": "10",
+				"rounds": 3,
+				"weight": 135
 			}
 		]
 	},
@@ -32,21 +34,24 @@ const MOCK_WORKOUTS = {
 		"exercises": [
 			{
 				"exercise": "Incline dumbell chest press",
-				"muscleGroup": "Pecs, ",
-				"reps/duration": "12 X 4",
-				"weight": "65 lbs", 
+				"muscleGroup": "chest",
+				"repititions": 12,
+				"rounds": 4,
+				"weight": 65, 
 			},
 			{
 				"exercise": "Bench Press",
-				"muscleGroup": "Pecs",
-				"reps/duration": 15,
-				"weight": "135 lbs", 
+				"muscleGroup": "chest",
+				"repititions": 15,
+				"rounds": 3,
+				"weight": 135 
 			},
 			{
 				"exercise": "Push-up",
 				"muscleGroup": "Pecs",
-				"reps/duration": "50",
-				"weight": "body weight", 
+				"repititions": "50",
+				"rounds": 1, 
+				"weight": 0 
 			}	
 		]
 	},
@@ -56,20 +61,23 @@ const MOCK_WORKOUTS = {
 			{
 				"exercise": "Pull up",
 				"muscleGroup": "back",
-				"reps/duration": "To Failure",
-				"weight": "body weight", 
+				"repititions": 20,
+				"rounds": 4,
+				"weight": 0 
 			},
 			{
 				"exercise": "Dumbell Row",
 				"muscleGroup": "back",
-				"reps/duration": 10,
-				"weight": 45, 
+				"repititions": 10,
+				"rounds": 3,
+				"weight": 45 
 			},
 			{
 				"exercise": "back extension",
-				"muscleGroup": "lower back",
-				"reps/duration": 15,
-				"weight": "body weight", 
+				"muscleGroup": "back",
+				"repititions": 15,
+				"rounds": 4,
+				"weight": 0 
 			}
 		]
 	}
@@ -102,7 +110,30 @@ function getSavedWorkouts(callbackFn) {
 function displaySavedWorkouts(data) {
 	for (index in data.workOuts) {
 		$('.container').append(
-			'<li>' + data.workOuts[index].workoutTitle + '</li> <br>') ; 
+			'<li>' + data.workOuts[index].workoutTitle + '</li> <br>' 
+//			'<button id="${data.workOuts[index].id}" class="delete-btn">Delete</button></button id={data.workOuts[index].id" class= "edit-btn"}
+// <div id="raw-data" hiddn>${JSON.stringify(data.workOuts[index])}</div>
+			); 
+	}
+}
+
+function deleteSavedWorkouts(data) {
+	for (index in data.workOuts) {
+		$('.delete-btn').on('click', function(event) {
+			let workoutId=$(this).attr('id'); 
+			console.log(workoutId); 
+			$.ajax({
+				url: `/wktList/${workoutId}`,
+				type: 'DELETE', 
+				dataType: 'json', 
+				contentType: 'application/json', 
+
+				success: data => {
+					console.log("sucess!"); 
+					window.location = "/userHome.html"; 
+				}
+			})
+		})
 	}
 }
 

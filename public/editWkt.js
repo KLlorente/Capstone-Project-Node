@@ -12,7 +12,8 @@ function updateSavedWkt(id, title, exercise) {
 			data: JSON.stringify({
 				id: id, 
 				title: title, 
-				exercise: exercise, 
+				exercise: {exercise,
+}
 			}) 
 			contentType: 'applicationn/json/', 
 			dataType: 'json', 
@@ -24,6 +25,34 @@ function updateSavedWkt(id, title, exercise) {
 }
 
 function addNewWorkout() {
-	if (window.localStorage(window.localStorage.getItem('workOut')); 
-		const )
+	if (window.localStorage.getItem('workOut')) { 
+		const workOut = JSON.parse(window.localStorage.getItem('workOut')); 
+		const workOtId = workOut.id; 
+		const workOutTitle = $('#exercise-name').val().trim(); 
+		const workOutExercises = $('')
+
+		updateSavedWktRequest(workOutId, workOutTitle, workOutExercises)
+
+		 }
 }
+
+function constructExercise() {
+
+}
+
+
+$('.new-workout-form').submit(function(event) {
+	event.preventDefault(); 
+	addNewWorkout(); 
+})
+
+
+function autoFill() {
+	if(window.localStorage.getItem('workOut')) {
+		const workOut = JSON.parse(window.localStorage.getItem('workout')); 
+
+
+	}
+}
+
+$(autoFill); 

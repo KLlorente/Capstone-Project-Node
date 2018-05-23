@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express();
-app.use(express.static('public'));
-app.listen(process.env.PORT || 8080);
+//const express = require('express');
+//const app = express();
+//app.use(express.static('public'));
+//app.listen(process.env.PORT || 8080);
 
 
 'use strict'
@@ -15,11 +15,11 @@ const passport = require ('passport');
 mongoose.Promise = global.Promise; 
 
 const { router: usersRouter } = require('./users'); 
-const { router: authRouter, localStrategy jwtStrategy } = require('./auth'); 
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth'); 
 const {DATABASE_URL, PORT } = require('./config'); 
 
 const wktRouter = require('/wktRouter'); 
-const Workout = require('./models'); 
+const { Workout } = require('./models'); 
 
 const app = express(); 
 const jsonParser = bodyParser.json(); 
@@ -28,8 +28,8 @@ app.use(express.static('public'));
 app.use(bodyParser.json()); 
 app.use(morgan('common')); 
 
-app.use('wktList', wktRouter); 
-app.use('.login', jsonParser, authRouter); 
+app.use('/wktList', wktRouter); 
+app.use('/login', jsonParser, authRouter); 
 app.use('/user-acc/', usersRouter); 
 
 //CORS
@@ -68,7 +68,7 @@ app.get('api/protected', jwtAuth, (req, res) => {
 		res.sendFile(__dirname + '/public/editWkt.html'); 
 	});
 
-	app.use('*', functioin (req, res) => {
+	app.use('*', function (req, res) {
 		return res.status(404).json({ message: 'Not Found' });
 	});
 

@@ -28,7 +28,7 @@ $('.signup-form').on('submit', event => {
 });
 
 $('#signUp-button').on('click', event => {
-	window.location 'sign-up.html'; 
+	window.location = 'sign-up.html'; 
 }); 
 
 //log-in form
